@@ -1,0 +1,4 @@
+# first time
+docker-compose up mysql2 --build -d ; sleep 10 ; docker-compose up djangoapp --build -d
+# next time
+docker-compose up mysql2 -d; sleep 10 ; docker-compose up djangoapp -d

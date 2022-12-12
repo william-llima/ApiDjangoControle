@@ -1,0 +1,23 @@
+version: "3"
+services:
+    djangoapp:
+        build: .
+        ports:
+          - "8000:8000"
+        volumes:
+          - ./:/app
+        depends_on:
+          - mysql2
+        command: bash -c "python manage.py migrate api && python manage.py runserver 0.0.0.0:8000"
+    mysql2:
+        image: mysql:5.7
+        environment:
+          - MYSQL_ROOT_PASSWORD=willdev
+          - MYSQL_USER=will
+          - MYSQL_PASSWORD=willdev
+          - MYSQL_DATABASE=apidjangodb
+        volumes:
+          - C:\Users\teste\Documents\db:/var/lib/mysql
+        ports:
+          - "3306:3306"
+
